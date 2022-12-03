@@ -1,15 +1,16 @@
 const express = require("express");
-const morgan = require("morgan");
 const app = express();
+const morgan = require("morgan");
 const cors = require("cors");
-const PORT = 3001;
-const routes = require("./routes");
+const PORT = process.env.PORT || 3001;
+const routes = require("./routes/userRoutes");
 
 //dataBase
 require("./dataBase");
 
 //middleware
 //app.user(express.json());
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(cors());
