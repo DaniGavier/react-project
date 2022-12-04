@@ -1,41 +1,114 @@
-import React, { useRef } from 'react';
-import Iframe from 'react-iframe';
-import '../Css/footer.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Row, Col, Container } from "react-bootstrap";
 
 const Footer = () => {
-
-	const roleAdmin = localStorage.getItem('role')
-	const recoverPass = window.location.pathname === "/recoverpass"
-
-	return (
-		<>
-			{roleAdmin === 'admin' || recoverPass ?
-				'' :
-				<footer className="row justify-content-around  align-items-center mx-0 py-3 bg-dark text-white" id="AboutUs">
-					<div>
-						<h2 className="text-white h2-footer text-center">Asturias Food & Drink</h2>
-						<div className="row mx-0 justify-content-center text-center text-md-left">
-							<div id="Redes" className="my-4 col-12 col-md-6">
-								<p className="p-redes">Nuestras Redes Sociales</p>
-								<a href="https://www.facebook.com/RollingCodeSchool/" target="_blank" rel="noopener noreferrer"><i className="fab mx-2 fa-facebook"></i></a>
-								<a href="https://twitter.com/rollingcodeok?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank" rel="noopener noreferrer"><i className="fab mx-2 fa-twitter-square"></i></a>
-								<a href="https://web.whatsapp.com/"><i className="fab mx-2 fa-whatsapp"></i></a>
-								<a href="https://www.instagram.com/rollingcodeschool/?hl=es-la" target="_blank" rel="noopener noreferrer"><i className="fab mx-2 fa-instagram"></i></a>
-							</div>
-							<div className="my-4 col-12 col-md-6">
-								<p className="p-redes mb-0"><i className="fas fa-map-marker-alt"></i> Direccion: Gral. Paz 576</p>
-								<p className="p-redes mb-0">Localidad: S. M. de Tucumán</p>
-								<p className="p-redes mb-0"> CP: 4000 </p>
-							</div>
-						</div>
-					</div>
-					<div className="p-3 p-md-0">
-						<Iframe className="mw-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.102370777529!2d-65.2093904854509!3d-26.836696096500635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225d3ad7f30f1d%3A0xf8606cd659b8e3e4!2sRollingCode%20School!5e0!3m2!1ses-419!2sar!4v1592508273252!5m2!1ses-419!2sar" width="500" height="300" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></Iframe>
-					</div>
-				</footer>
-			}
-		</>
-	)
-}
-
+  return (
+    <Container fluid className="m-0 px-0 mt-auto">
+      <Row style={{ backgroundColor: "#FAA916" }}>
+        <Col className="col-4 d-flex justify-content-center align-items-center">
+          <Link className="foot" to="/">
+            <img
+              className="foot"
+              src="/img/icons/logo.png"
+              alt="logo.png"
+              width={110}
+            />
+          </Link>
+        </Col>
+        <Col>
+          <Row className=" col-4 g-3 mt-3 mb-2 d-none d-md-block">
+            <Row className="g-3">
+              <Link className="foot" to="/Contact">
+                Contacto
+              </Link>
+              <Link className="foot" to="/Favorites">
+                Favoritos
+              </Link>
+              <Link className="foot" to="/AboutUs">
+                Nosotros
+              </Link>
+            </Row>
+          </Row>
+        </Col>
+        <Col>
+          <Row className="col-4 mt-3  mb-2 d-none d-md-block">
+            <Row className="g-3">
+              <Link className="foot" href="">
+                link4
+              </Link>
+              <Link className="foot" href="">
+                link5
+              </Link>
+              <Link className="foot" href="">
+                link6
+              </Link>
+            </Row>
+          </Row>
+        </Col>
+        <Col className="d-flex flex-column">
+          <Row className="col-4 mt-2 ">
+            <div className="d-flex mt-3 mb-2">
+              <h3 className="col-4">
+                <a href="https://facebook.com" target="_blank" rel="noreferrer">
+                  <img
+                    src="/img/icons/facebook.png"
+                    alt="Icono Facebook"
+                    width={35}
+                  />
+                </a>
+              </h3>
+              <h3 className="col-4 ms-4">
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    src="/img/icons/instagram.png"
+                    alt="Icono Instagram"
+                    width={35}
+                  />
+                </a>
+              </h3>
+              <h3 className="col-4 ms-4">
+                <a href="https://twitter.com" target="_blank" rel="noreferrer">
+                  <img
+                    src="/img/icons/twitter.png"
+                    alt="Icono Twitter"
+                    width={35}
+                  />
+                </a>
+              </h3>
+              <h3 className="col-4 ms-4">
+                <a href="https://youtube.com" target="_blank" rel="noreferrer">
+                  <img
+                    src="/img/icons/youtube.png"
+                    alt="Icono Youtube"
+                    width={35}
+                  />
+                </a>
+              </h3>
+            </div>
+          </Row>
+          <Col className="d-flex flex-column">
+            <h5 className="ms-4 mt-0">Contactanos</h5>
+            <h5>
+              {" "}
+              <a className="foot" href="https://rollingcodeschool.com/">
+                {" "}
+                Rolling Code school
+              </a>
+            </h5>
+          </Col>
+        </Col>
+      </Row>
+      <Row>
+        <h5 className="text-center bg-dark text-light py-2 m-0">
+          &copy; Copyright 2022 RollingCode Films - All Rights Reserved
+        </h5>
+      </Row>
+    </Container>
+  );
+};
 export default Footer;
